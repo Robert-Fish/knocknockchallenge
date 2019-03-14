@@ -6,20 +6,23 @@ const app = express();
 
 app.get("/api/Fibonacci", (req, res) => {
   // sets variable to number given in query string
-  const number = parseInt(req.query.n);
+  if (req.query.n < 0) {
+  } else {
+    const number = parseInt(req.query.n);
 
-  findFibNumber = n => {
-    let arr = [0, 1];
+    findFibNumber = n => {
+      let arr = [0, 1];
 
-    for (let i = 2; i < n + 1; i++) {
-      arr.push(arr[i - 2] + arr[i - 1]);
-    }
+      for (let i = 2; i < n + 1; i++) {
+        arr.push(arr[i - 2] + arr[i - 1]);
+      }
 
-    /* Uses for loop to create sequence and find index of given nth number */
-    return arr[n];
-  };
+      /* Uses for loop to create sequence and find index of given nth number */
+      return arr[n];
+    };
 
-  res.json(findFibNumber(number));
+    res.json(findFibNumber(number));
+  }
 });
 
 app.get("/api/ReverseWords", (req, res) => {
