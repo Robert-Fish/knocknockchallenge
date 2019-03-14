@@ -53,6 +53,7 @@ app.get("/api/TriangleType", (req, res) => {
   };
 
   if (a < 0 || b < 0 || c < 0) {
+    res.sendStatus(200);
   } else {
     res.send(getTriangleType(a, b, c));
   }
