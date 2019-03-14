@@ -6,7 +6,7 @@ const app = express();
 
 app.get("/api/Fibonacci", (req, res) => {
   // sets variable to number given in query string
-  if (Number.MAX_SAFE_INTEGER(req.query.n)) {
+  if (req.query.n > Number.MAX_SAFE_INTEGER) {
     res.sendStatus(400);
     console.log("too big");
   } else {
