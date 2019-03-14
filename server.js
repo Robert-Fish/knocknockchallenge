@@ -40,7 +40,7 @@ app.get("/api/ReverseWords", (req, res) => {
       .join("");
 
   if (req.query.sentence === "" || req.query.sentence === undefined) {
-    res.sendStatus(200);
+    res.sendStatus();
   } else {
     res.send(reverse(req.query.sentence));
   }
@@ -63,7 +63,7 @@ app.get("/api/TriangleType", (req, res) => {
 
   if (a < 0 || b < 0 || c < 0) {
     // console.log("error found");
-    res.sendStatus(200);
+    res.json("Error");
   } else {
     res.send(getTriangleType(a, b, c));
   }
