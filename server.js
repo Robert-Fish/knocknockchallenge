@@ -11,14 +11,14 @@ app.get("/api/Fibonacci", (req, res) => {
     let arr = [0, 1];
 
     for (let i = 2; i < n + 1; i++) {
-      arr.push([i - 2] + arr[i - 1]);
+      arr.push(arr[i - 2] + arr[i - 1]);
     }
 
     /* Uses for loop to create sequence and find index of given nth number */
     return arr[n];
   };
 
-  res.send(findFibNumber(parseInt(req.query.n)));
+  res.json(findFibNumber(parseInt(req.query.n)));
 });
 
 app.get("/api/ReverseWords", (req, res) => {
