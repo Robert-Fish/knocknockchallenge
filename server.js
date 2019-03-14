@@ -6,6 +6,7 @@ const app = express();
 
 app.get("/api/Fibonacci", (req, res) => {
   // sets variable to number given in query string
+  const number = Number(req.query.n);
 
   findFibNumber = n => {
     let arr = [0, 1];
