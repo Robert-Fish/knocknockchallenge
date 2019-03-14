@@ -17,6 +17,8 @@ app.get("/api/Fibonacci", (req, res) => {
     /* Uses for loop to create sequence and find index of given nth number */
     return arr[n];
   };
+
+  res.send(findFibNumber(n));
 });
 
 app.get("/api/ReverseWords", (req, res) => {
@@ -56,7 +58,7 @@ app.get("/api/TriangleType", (req, res) => {
   res.send(getTriangleType(a, b, c));
 });
 
-app.get("/api/Token", (req, res) => {
+app.get("/api/token", (req, res) => {
   // Checks all three variables against set cases to return triangle type
 
   res.send("00000000-0000-0000-0000-000000000000");
