@@ -18,7 +18,7 @@ app.get("/api/Fibonacci", (req, res) => {
     return arr[n];
   };
 
-  res.send(findFibNumber(req.query.n));
+  res.send(findFibNumber(parseInt(req.query.n)));
 });
 
 app.get("/api/ReverseWords", (req, res) => {
@@ -58,7 +58,7 @@ app.get("/api/TriangleType", (req, res) => {
   res.send(getTriangleType(a, b, c));
 });
 
-app.get("/api/token", (req, res) => {
+app.get("/token", (req, res) => {
   // Checks all three variables against set cases to return triangle type
 
   res.send("00000000-0000-0000-0000-000000000000");
