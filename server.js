@@ -19,7 +19,7 @@ app.get("/api/Fibonacci", (req, res) => {
     return arr[n];
   };
 
-  res.json(findFibNumber(Number(req.query.n)));
+  res.json(findFibNumber(number));
 });
 
 app.get("/api/ReverseWords", (req, res) => {
