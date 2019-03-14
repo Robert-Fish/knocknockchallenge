@@ -7,13 +7,13 @@ const app = express();
 app.get("/api/Fibonacci", (req, res) => {
   // sets variable to number given in query string
   function fib(n) {
-    let phi = (1 + Math.sqrt(5))/2;
+    let phi = (1 + Math.sqrt(5)) / 2;
     let asymp = Math.pow(phi, n) / Math.sqrt(5);
 
     return Math.round(asymp);
-}
+  }
 
-  res.json(fib(req.query.n))
+  res.json(fib(req.query.n));
 });
 
 app.get("/api/ReverseWords", (req, res) => {
@@ -60,7 +60,7 @@ app.get("/api/TriangleType", (req, res) => {
 app.get("/api/token", (req, res) => {
   // Checks all three variables against set cases to return triangle type
 
-  res.send("00000000-0000-0000-0000-000000000000");
+  res.send("5c755f51-2367-48df-8d74-6c6f9337108f");
 });
 
 const PORT = process.env.PORT || 8000; // Dynamic port for deployment
