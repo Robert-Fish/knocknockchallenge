@@ -15,7 +15,13 @@ app.get("/api/Fibonacci", (req, res) => {
     return Math.round((Math.pow(Phi, n) - Math.pow(phi, n)) / sqRootOf5);
   }
 
-  res.json(fib(req.query.n));
+  const result = fib(req.query.n);
+
+  if (result === Infinity) {
+    res.status(400);
+  } else {
+    res.json(result);
+  }
 });
 
 app.get("/api/ReverseWords", (req, res) => {
