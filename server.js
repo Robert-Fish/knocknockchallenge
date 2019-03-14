@@ -44,7 +44,11 @@ app.get("/api/ReverseWords", (req, res) => {
     return result;
   };
 
-  res.send(reverseWord(req.query.sentence));
+  if (req.query.sentence === "" || req.query.sentence === undefined) {
+    res.sendStatus(200);
+  } else {
+    res.send(reverseWord(req.query.sentence));
+  }
 });
 
 app.get("/api/TriangleType", (req, res) => {
