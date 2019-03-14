@@ -17,27 +17,32 @@ app.get("/api/Fibonacci", (req, res) => {
 });
 
 app.get("/api/ReverseWords", (req, res) => {
-  reverseWord = str => {
-    var words = []; // Initalise empty array
-    words = str.match(/\S+/g); // Use regex to match all non-whitespace characters
-    var result = "";
+  // reverseWord = str => {
+  //   var words = []; // Initalise empty array
+  //   words = str.match(/\S+/g); // Use regex to match all non-whitespace characters
+  //   var result = "";
 
-    /* Uses for loop to split words, reverse and concat all characters in the new order to return given word/words in reverse  */
-    for (var i = 0; i < words.length; i++) {
-      result +=
-        words[i]
-          .split("")
-          .reverse()
-          .join("") + " ";
-    }
+  //   /* Uses for loop to split words, reverse and concat all characters in the new order to return given word/words in reverse  */
+  //   for (var i = 0; i < words.length; i++) {
+  //     result +=
+  //       words[i]
+  //         .split("")
+  //         .reverse()
+  //         .join("") + " ";
+  //   }
 
-    return result;
-  };
+  //   return result;
+  // };
+
+  const reverse = str =>
+    Array.from(str)
+      .reverse()
+      .join("");
 
   if (req.query.sentence === "" || req.query.sentence === undefined) {
     res.sendStatus(200);
   } else {
-    res.send(reverseWord(req.query.sentence));
+    res.send(reverse(req.query.sentence));
   }
 });
 
