@@ -6,16 +6,12 @@ const app = express();
 
 app.get("/api/Fibonacci", (req, res) => {
   // sets variable to number given in query string
-  function fib(n) {
-    var sqRootOf5 = Math.sqrt(5);
+  const Negafibonacci = n => {
+    const res = fib(Math.abs(n));
+    return n < 0 && n % 2 === 0 ? -res : res;
+  };
 
-    var Phi = (1 + sqRootOf5) / 2;
-    var phi = (1 - sqRootOf5) / 2;
-
-    return Math.round((Math.pow(Phi, n) - Math.pow(phi, n)) / sqRootOf5);
-  }
-
-  const result = fib(req.query.n);
+  const result = Negafibonacci(req.query.n);
 
   if (result === Infinity) {
     res.status(400);
