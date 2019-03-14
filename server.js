@@ -18,11 +18,7 @@ app.get("/api/Fibonacci", (req, res) => {
     return arr[n];
   };
 
-  if (typeof req.query.n !== "bigint") {
-    res.sendStatus(200);
-  } else {
-    res.json(findFibNumber(Number(req.query.n)));
-  }
+  res.json(findFibNumber(Number(req.query.n)));
 });
 
 app.get("/api/ReverseWords", (req, res) => {
