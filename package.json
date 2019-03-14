@@ -1,0 +1,16 @@
+{
+  "name": "knocknockapi",
+  "version": "1.0.0",
+  "description": "A simple rest api for the knock knock challenge.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js ",
+    "dev": "nodemon server.js"
+  },
+  "author": "Robert Fish",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10"
+  }
+}
