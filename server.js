@@ -13,11 +13,7 @@ app.get("/api/Fibonacci", (req, res) => {
     return Math.round(asymp);
   }
 
-  if (req.query.n < 0) {
-    res.sendStatus(200);
-  } else {
-    res.json(fib(req.query.n));
-  }
+  res.json(fib(req.query.n));
 });
 
 app.get("/api/ReverseWords", (req, res) => {
