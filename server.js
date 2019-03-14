@@ -21,7 +21,7 @@ app.get("/api/Fibonacci", (req, res) => {
   if (typeof req.query.n !== "bigint") {
     res.sendStatus(200);
   } else {
-    res.json(findFibNumber(parseInt(req.query.n)));
+    res.json(findFibNumber(req.query.n));
   }
 });
 
