@@ -7,6 +7,7 @@ const app = express();
 app.get("/api/Fibonacci", (req, res) => {
   // sets variable to number given in query string
   if (req.query.n < 0) {
+    res.sendStatus(400);
   } else {
     const number = parseInt(req.query.n);
 
