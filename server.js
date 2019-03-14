@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 
 app.get("/api/Fibonacci", (req, res) => {
-  const n = req.query.n; // sets variable to number given in query string
+  // sets variable to number given in query string
 
   findFibNumber = n => {
     let arr = [0, 1];
@@ -18,7 +18,7 @@ app.get("/api/Fibonacci", (req, res) => {
     return arr[n];
   };
 
-  res.send(findFibNumber(n));
+  res.send(findFibNumber(req.query.n));
 });
 
 app.get("/api/ReverseWords", (req, res) => {
