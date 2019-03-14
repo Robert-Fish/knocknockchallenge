@@ -58,7 +58,7 @@ app.get("/api/TriangleType", (req, res) => {
   res.send(getTriangleType(a, b, c));
 });
 
-app.get("/token", (req, res) => {
+app.get("/api/token", (req, res) => {
   // Checks all three variables against set cases to return triangle type
 
   res.send("00000000-0000-0000-0000-000000000000");
