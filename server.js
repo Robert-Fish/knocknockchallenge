@@ -7,10 +7,12 @@ const app = express();
 app.get("/api/Fibonacci", (req, res) => {
   // sets variable to number given in query string
   function fib(n) {
-    let phi = (1 + Math.sqrt(5)) / 2;
-    let asymp = Math.pow(phi, n) / Math.sqrt(5);
+    var sqRootOf5 = Math.sqrt(5);
 
-    return Math.round(asymp);
+    var Phi = (1 + sqRootOf5) / 2;
+    var phi = (1 - sqRootOf5) / 2;
+
+    return Math.round((Math.pow(Phi, n) - Math.pow(phi, n)) / sqRootOf5);
   }
 
   res.json(fib(req.query.n));
@@ -40,7 +42,7 @@ app.get("/api/ReverseWords", (req, res) => {
       .join("");
 
   if (req.query.sentence === "" || req.query.sentence === undefined) {
-    res.sendStatus();
+    res.sendStatus(200);
   } else {
     res.send(reverse(req.query.sentence));
   }
