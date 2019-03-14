@@ -52,9 +52,12 @@ app.get("/api/TriangleType", (req, res) => {
     );
   };
 
-  // Checks all three variables against set cases to return triangle type
+  if (a < 0 || b < 0 || c < 0) {
+  } else {
+    res.send(getTriangleType(a, b, c));
+  }
 
-  res.send(getTriangleType(a, b, c));
+  // Checks all three variables against set cases to return triangle type
 });
 
 app.get("/api/token", (req, res) => {
