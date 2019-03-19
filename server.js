@@ -1,30 +1,29 @@
 // Main file
 
 /* Basic express setup  */
-const express = require("express");
+const express = require('express');
 const app = express();
 
-app.get("/api/Fibonacci", (req, res) => {
+app.get('/api/Fibonacci', (req, res) => {
   // sets variable to number given in query string
-  function fib(n) {
-    var sqRootOf5 = Math.sqrt(5);
 
-    var Phi = (1 + sqRootOf5) / 2;
-    var phi = (1 - sqRootOf5) / 2;
+  fibonacci = num => {
+    let n = Math.abs(num);
+    if (n <= 2) return 1;
 
-    return Math.round((Math.pow(Phi, n) - Math.pow(phi, n)) / sqRootOf5);
-  }
+    const f = [0, 1, 1];
+    for (let i = 3; i <= n; i++) {
+      f[i] = f[i - 1] + f[i - 2];
+    }
 
-  const result = fib(req.query.n);
+    if (num < 0 && num % 2 === 0) return -1 * f[f.length - 1];
+    else return f[f.length - 1];
+  };
 
-  if (result === Infinity) {
-    res.status(400);
-  } else {
-    res.json(result);
-  }
+  res.json(fibonacci(req.query.n));
 });
 
-app.get("/api/ReverseWords", (req, res) => {
+app.get('/api/ReverseWords', (req, res) => {
   // reverseWord = str => {
   //   var words = []; // Initalise empty array
   //   words = str.match(/\S+/g); // Use regex to match all non-whitespace characters
@@ -45,16 +44,16 @@ app.get("/api/ReverseWords", (req, res) => {
   const reverse = str =>
     Array.from(str)
       .reverse()
-      .join("");
+      .join('');
 
-  if (req.query.sentence === "" || req.query.sentence === undefined) {
+  if (req.query.sentence === '' || req.query.sentence === undefined) {
     res.sendStatus(200);
   } else {
     res.send(reverse(req.query.sentence));
   }
 });
 
-app.get("/api/TriangleType", (req, res) => {
+app.get('/api/TriangleType', (req, res) => {
   // Simple destructuring to make the code cleaner
 
   const a = parseInt(req.query.a);
@@ -63,15 +62,15 @@ app.get("/api/TriangleType", (req, res) => {
 
   getTriangleType = (a, b, c) => {
     return (
-      (a === b && b == c && "equilateral") ||
-      ((a === b || a === c || b === c) && "isosceles") ||
-      "scalene"
+      (a === b && b == c && 'equilateral') ||
+      ((a === b || a === c || b === c) && 'isosceles') ||
+      'scalene'
     );
   };
 
   if (a < 0 || b < 0 || c < 0) {
     // console.log("error found");
-    res.json("Error");
+    res.json('Error');
   } else {
     res.send(getTriangleType(a, b, c));
   }
@@ -79,10 +78,10 @@ app.get("/api/TriangleType", (req, res) => {
   // Checks all three variables against set cases to return triangle type
 });
 
-app.get("/api/token", (req, res) => {
+app.get('/api/token', (req, res) => {
   // Checks all three variables against set cases to return triangle type
 
-  res.send("5c755f51-2367-48df-8d74-6c6f9337108f");
+  res.send('5c755f51-2367-48df-8d74-6c6f9337108f');
 });
 
 const PORT = process.env.PORT || 8000; // Dynamic port for deployment
