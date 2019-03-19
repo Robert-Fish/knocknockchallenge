@@ -5,8 +5,6 @@ const express = require('express');
 const app = express();
 
 app.get('/api/Fibonacci', (req, res) => {
-  // sets variable to number given in query string
-
   fibonacci = num => {
     let n = Math.abs(num);
     if (n <= 2) return 1;
@@ -20,7 +18,7 @@ app.get('/api/Fibonacci', (req, res) => {
     else return f[f.length - 1];
   };
 
-  res.json(fibonacci(req.query.n));
+  res.json(fibonacci(parseInt(req.query.n)));
 });
 
 app.get('/api/ReverseWords', (req, res) => {
