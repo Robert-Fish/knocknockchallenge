@@ -18,7 +18,7 @@ app.get('/api/Fibonacci', (req, res) => {
     else return f[f.length - 1];
   };
 
-  res.json(fibonacci(parseInt(req.query.n)));
+  res.json(Number.isSafeInteger() ? fibonacci(parseInt(req.query.n)) : '');
 });
 
 app.get('/api/ReverseWords', (req, res) => {
